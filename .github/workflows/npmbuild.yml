@@ -2,9 +2,6 @@ name: Hamonize CI
 on:
   push:
     branches: [ master ]
-    paths:
-      - '**.js'
-      - '**.md'
 jobs:          
   build-connect:
     name: Build Hamonize-demo
