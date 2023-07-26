@@ -45,7 +45,7 @@
     "icon": "./build/icons",
     "productName": "hamonize-demo",
     "appId": "hamonize.demo.support",
-    "asar": false,
+    "asar": true,
     "protocols": {
       "name": "hamonize-demo",
       "schemes": [
@@ -61,7 +61,8 @@
     },
     "linux": {
       "target": [
-        "AppImage"
+        "AppImage",
+        "deb"
       ],
       "icon": "res/bin/iconshm/",
       "desktop": {
