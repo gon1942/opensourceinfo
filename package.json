@@ -43,13 +43,13 @@
   },
   "build": {
     "icon": "./build/icons",
-    "productName": "hamonize-connect",
-    "appId": "hamonize.connect.support",
+    "productName": "hamonize-demo",
+    "appId": "hamonize.demo.support",
     "asar": false,
     "protocols": {
-      "name": "hamonize-connect",
+      "name": "hamonize-demo",
       "schemes": [
-        "hamonize-connect"
+        "hamonize-demo"
       ]
     },
     "win": {
