@@ -16,10 +16,14 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16'
+        node-version: '14'
 
     - name: Install dependencies
       run: npm install
 
     - name: License check
       run: npx license-checker --production --summary
+      id: license_check_result
+
+    - name: Display license check result
+      run: echo "${{ steps.license_check_result.outputs.result }}"
