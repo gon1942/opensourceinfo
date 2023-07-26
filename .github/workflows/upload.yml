@@ -13,7 +13,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
-          workflow: nodejs_matirxBuild.yml
+          workflow: npmbuild.yml
           workflow_conclusion: success
 
       - run: ls -R
