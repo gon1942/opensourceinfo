@@ -31,7 +31,7 @@ jobs:
       run: npm run jest
         
     - name: Build Hamonize-connect
-      run: npm run build:linux2
+      run: npm run build:linux
       
     - name: Upload artifact
       uses: actions/upload-artifact@v2
