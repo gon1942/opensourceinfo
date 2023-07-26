@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    <title>[ Hamonize ] PC 관리 프로그램</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+    />
+    <!-- Material Kit CSS -->
+    <link href="./assets/css/material-dashboard.css" rel="stylesheet" />
+
+    <!-- CSS Files -->
+    <link href="assets/css/material-dashboard.css" rel="stylesheet" />
+    <link href="assets/css/loading.css" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="assets/demo/demo.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"
+    />
+  </head>
+
+  <body>
+    
+
+    <header id="titlebar">
+      <div id="drag-region">
+        <div id="window-title">
+          <span>Demo] Electron </span>
+        </div>
+      </div>
+    </header>
+
+    <div id="main">
+      <section
+        class="about section"
+        style="padding-top: 20px; padding-bottom: 30px"
+      >
+        <div class="">
+          <div class="row align-items-center" style="margin-bottom: 0px">
+            <div
+              class="col-lg-7 col-7 wow fadeIn"
+              data-wow-delay=".4s"
+              style="
+                visibility: visible;
+                animation-delay: 0.4s;
+                animation-name: fadeIn;
+              "
+            >
+              <div class="about-image" id="divVideo">
+                <video
+                  autoplay=""
+                  loop=""
+                  muted=""
+                  playsinline=""
+                  style="width: 100%"
+                >
+                  <source
+                    src="https://hamonize.com/uploads/video/hamonize.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+            </div>
+            <div
+              class="col-lg-5 col-5 wow fadeIn"
+              data-wow-delay=".6s"
+              style="
+                visibility: visible;
+                animation-delay: 0.6s;
+                animation-name: fadeIn;
+              "
+            >
+              <div class="content" style="margin-top: 0px">
+                <h4 id="sub_title"># 𝓗𝓪𝓶𝓸𝓷𝓲𝔃𝓮-Auth</h4>
+                <!-- 인증 -->
+                <div id="authkeyLayer">
+                  <div class="form-group">
+                    <label class="bmd-label-floating"
+                      >𝓗𝓪𝓶𝓸𝓷𝓲𝔃𝓮 인증번호를 입력해주세요 :
+                    </label>
+                    <input
+                      type="text"
+                      id="authkey"
+                      name="authkey"
+                      value=""
+                      class="bgelement"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    id="pcChkAuthBtn"
+                    class="btn btn-primary pull-right"
+                  >
+                    확인
+                  </button>
+                </div>
+                <!-- 조직 선택-->
+                <div id="orgLayer" style="display: none">
+                  <div class="form-group">
+                    <label class="bmd-label-floating"
+                      >조직을 선택해주세요 :
+                    </label>
+                    <select
+                      name="groupName"
+                      id="groupName"
+                      class="bgelement"
+                      style="display: block"
+                    ></select>
+                  </div>
+                  <button
+                    type="button"
+                    id="pcChkBtn"
+                    class="btn btn-primary pull-right"
+                  >
+                    선택
+                  </button>
+                </div>
+                <!-- 프리 사용자 -->
+                <div id="hmFreeDoneBody" style="display: none">
+                  <label class="bmd-label-floating" id="hmFreeDoneBodyTextMsg">
+                  </label>
+             
+                </div>
+                <div id="installLayer" style="display: none">
+                  <ul>
+                    <li>- 사용자 접속 로그 관리</li>
+                    <li>- 비인가 디바이스(usb) 관리</li>
+                    <li>- 백업및복구관리</li>
+                    <li>- Vpn</li>
+                    <li>- 원격관리 툴</li>
+                    <li>- openldap/Telegraf</li>
+                  </ul>
+                </div>
+                <!-- 백업 -->
+                <div id="backupLayer" style="display: none; font-size: 12px">
+                  <ul>
+                    <li id="osDisk"></li>
+                    <li>
+                      - 하드 디스크 용량에따라 완료되는 시간이 길어질 수
+                      있습니다.
+                    </li>
+                    <li id="backupInfo2">
+                      - OS 백업 미진행시 관리센터에서 복구를 진행할 수 없습니다.
+                    </li>
+                    <li>
+                      <select
+                        name="backUpSelect"
+                        id="backUpSelect"
+                        class="bgelement"
+                        style="display: block"
+                      >
+                        <option value="0">==백업 진행 선택==</option>
+                        <option value="1">시작</option>
+                        <option value="2">종료</option>
+                      </select>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        id="backupBtn"
+                        class="btn btn-primary pull-right"
+                      >
+                        확인
+                      </button>
+                    </li>
+                    <li>
+                      <span
+                        id="backupInfoMsg"
+                        class="text-white"
+                        style="display: none"
+                      ></span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- 종료 -->
+                <div id="EndLayer" style="display: none; font-size: 12px">
+                  <div class="form-group">
+                    <label class="bmd-label-floating" id="EndMsg">
+                      𝓗𝓪𝓶𝓸𝓷𝓲𝔃𝓮 설치 완료
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =========================================== --><!-- =========================================== -->
+    <!-- =========================================== --><!-- =========================================== -->
+    <!-- =========================================== --><!-- =========================================== -->
+    <!-- =========================================== --><!-- =========================================== -->
+    <!-- =========================================== --><!-- =========================================== -->
+    <!-- =========================================== --><!-- =========================================== -->
+    <!-- =========================================== --><!-- =========================================== -->
+    <!-- =========================================== --><!-- =========================================== -->
+    <div class="container-fluid">
+      <footer class="footer" style="padding: 0px">
+        <div class="container-fluid">
+          <div class="copyright float-right">
+            <i class="material-icons">made by Invesume.</i>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/jquery.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+
+    <script
+      defer
+      async
+      rel
+      src="assets/js/core/bootstrap-material-design.min.js"
+    ></script>
+
+    <script>
+      // require('./assets/js/renderer.js')
+    </script>
+    <script>
+      $("#procLayerBody").hide();
+      // $("#procLayer").click(function () {
+      //     $("#procLayerBody").show();
+      //     $("#initLayerBody").hide();
+      // });
+      // $("#initLayer").click(function () {
+      //     $("#initLayerBody").show();
+      //     $("#procLayerBody").hide();
+      // });
+
+      $(document).ready(function () {
+        $modal = $(".modal");
+
+        $(".modal--open").click(function () {
+          $modal.show();
+          // popupOpen();
+          return false;
+        });
+        $(".modal--close").click(function () {
+          $modal.hide();
+        });
+      });
+
+      function popupOpen() {
+        $(".layerpop").css("position", "absolute");
+        $(".layerpop").css("top", "300px");
+        $(".layerpop").css(
+          "left",
+          ($(window).width() - $(".layerpop").outerWidth()) / 8 +
+            $(window).scrollLeft()
+        );
+        $("#layerbox").show();
+      }
+    </script>
+
+    <script type="text/javascript" src="assets/js/index.js"></script>
+  </body>
+</html>
