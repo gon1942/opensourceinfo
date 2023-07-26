@@ -1,9 +1,9 @@
 name: Release Github Application Version
+
 on:
-  pull_request:
+  push:
     branches:
       - master
-
 jobs:
   release-application:
     runs-on: ubuntu-latest
