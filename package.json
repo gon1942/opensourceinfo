@@ -2,15 +2,24 @@
   "name": "test1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "jest": "jest",
     "test:watch": "jest --watch",
     "linta": "eslint *.js",
     "lint": "eslint './**/*.js'",
     "prepare": "husky install",
-    "start": "APP_DEV=true electron main.js --no-sandbox"
+    "start": "APP_DEV=true electron main.js --no-sandbox",
+    "build:linux": "electron-builder --linux --x64"
   },
+  "files": [
+    "*.js",
+    "license.txt",
+    "readme.txt",
+    "public",
+    "bin",
+    "shell"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -31,5 +40,46 @@
     "electron": "^13.6.9",
     "electron-builder": "^22.3.2",
     "pkg": "^4.4.0"
+  },
+  "build": {
+    "icon": "./build/icons",
+    "productName": "hamonize-connect",
+    "appId": "hamonize.connect.support",
+    "asar": false,
+    "protocols": {
+      "name": "hamonize-connect",
+      "schemes": [
+        "hamonize-connect"
+      ]
+    },
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "res/bin/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "res/bin/iconshm/",
+      "desktop": {
+        "Encoding": "UTF-8"
+      }
+    },
+    "deb": {
+      "afterInstall": "res/linux/after-install.tpl",
+      "afterRemove": "res/linux/after-remove.tpl"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "buildResources": "resources/installer/",
+      "output": "dist/",
+      "app": "."
+    }
   }
 }
