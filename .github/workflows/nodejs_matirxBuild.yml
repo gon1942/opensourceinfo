@@ -2,10 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [master]
+   paths:
+      - '**.js'
 
 jobs:
   run-tests:
@@ -33,3 +32,4 @@ jobs:
 
     - name: build
       run: npm run build:linux
+      path: ./hamonize-demo*.AppImage
